@@ -38,13 +38,13 @@ class AuthTokenSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(
         style={'input_type':'password'},
-        trim_whitespace=False
+        trim_whitespace=False,
     )
 
     def validate(self, attrs):
         """Validate and authenticate the user"""
-        email=attrs.get('email')
-        password=attrs.get('password')
+        email = attrs.get('email')
+        password = attrs.get('password')
         user = authenticate(
             request=self.context.get('request'),
             username=email,
