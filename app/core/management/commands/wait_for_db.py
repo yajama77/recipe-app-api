@@ -12,9 +12,9 @@ from django.core.management.base import BaseCommand
 class Command(BaseCommand):
     """Django command to wait for database"""
 
-    def handle(self, *args, **kwargs):
+    def handle(self, *args, **options):
         """Entrypoint for command"""
-        self.stdout.write("waiting from databse....")
+        self.stdout.write("waiting for databse....")
         db_up = False
         while db_up is False:
             try:

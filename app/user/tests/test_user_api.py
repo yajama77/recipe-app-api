@@ -109,7 +109,7 @@ class PublicUserApiTests(TestCase):
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_retreive_user_unauthorized(self):
+    def test_retrieve_user_unauthorized(self):
         """Test authentication is required for users"""
         res = self.client.get(ME_URL)
 
@@ -121,12 +121,12 @@ class PrivateUserApiTests(TestCase):
 
     def setUp(self):
         self.user = create_user(
-            email = 'test@example.com',
-            password = 'testpass123',
-            name = 'Test Name',
+            email='test@example.com',
+            password='testpass123',
+            name='Test Name',
         )
         self.client = APIClient()
-        self.client.force_authenticate(user = self.user)
+        self.client.force_authenticate(user=self.user)
 
     def test_retrieve_profile_success(self):
         """Test retrieving profile for logged in user"""
